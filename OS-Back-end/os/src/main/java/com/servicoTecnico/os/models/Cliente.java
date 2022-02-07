@@ -24,6 +24,7 @@ public class Cliente extends Pessoa {
 		super(id, nome, cpf, telefone);
 
 	}
+	
 
 	public List<OrdemServico> getOrdemServico() {
 		return ordemServico;

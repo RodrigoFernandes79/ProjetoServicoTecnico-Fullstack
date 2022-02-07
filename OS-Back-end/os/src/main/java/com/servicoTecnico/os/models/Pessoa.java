@@ -2,22 +2,33 @@ package com.servicoTecnico.os.models;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
+
 public abstract class Pessoa {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@Column(unique = true, nullable = false)
+	@NotBlank(message= "Campo Obrigatório!")
 	private String nome;
-	@CPF
+	@CPF(message = "CPF inválido!")
+	@Column(unique = true, nullable = false)
+	@NotBlank(message= "Campo Obrigatório!")
 	private String cpf;
+	@Column(unique = true, nullable = false)
+	@NotBlank(message= "Campo Obrigatório!")
 	private String telefone;
 
 	public Pessoa() {

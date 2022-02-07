@@ -1,0 +1,24 @@
+package com.servicoTecnico.os.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.servicoTecnico.os.dtos.TecnicoDTO;
+import com.servicoTecnico.os.models.Tecnico;
+import com.servicoTecnico.os.repositories.TecnicoRepository;
+
+@Service
+public class TecnicoService {
+	
+	@Autowired
+	private TecnicoRepository tecnicoRepository;
+
+	public Tecnico criarTecnico(TecnicoDTO tecnicoDTO) {
+		
+		Tecnico obj = new Tecnico(null, tecnicoDTO.getNome(), tecnicoDTO.getCpf(), tecnicoDTO.getTelefone());
+		
+		
+		return tecnicoRepository.save(obj);
+	}
+
+}
