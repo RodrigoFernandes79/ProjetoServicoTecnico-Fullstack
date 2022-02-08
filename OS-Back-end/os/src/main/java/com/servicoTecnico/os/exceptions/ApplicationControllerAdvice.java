@@ -11,6 +11,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestControllerAdvice
 public class ApplicationControllerAdvice {
@@ -23,6 +24,17 @@ public class ApplicationControllerAdvice {
 		
 		ApiException obj = new ApiException(fieldName);
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(obj);
+	}
+	
+	@ExceptionHandler(ResponseStatusException.class)
+	public ResponseEntity<ApiException> validationNotFoundException(ResponseStatusException ex){
+		
+		String fieldName = ex.getMessage();
+		
+		String errorMessage = ex.getReason();
+		
+		ApiException obj = new ApiException(fieldName, errorMessage);
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(obj);
 	}
 	
 	
