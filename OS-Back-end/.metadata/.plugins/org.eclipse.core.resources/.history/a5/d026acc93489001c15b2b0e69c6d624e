@@ -1,0 +1,37 @@
+package com.servicoTecnico.os.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
+
+import com.servicoTecnico.os.dtos.ClienteDTO;
+import com.servicoTecnico.os.models.Cliente;
+import com.servicoTecnico.os.repositories.ClienteRepository;
+
+@Service
+public class ClienteService {
+
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
+
+
+
+	public Cliente criarCliente(Cliente cliente) {
+		ClienteDTO newObj = new ClienteDTO(cliente);
+		Optional<Cliente> cpf = clienteRepository.findClienteById(newObj.getCpf());
+		
+		if(cpf.isPresent()) {
+			cpf.orElseThrow(() -> new DataIntegrityViolationException("CPF JÁ EXISTE NA BASE DE DADOS!"));
+		}
+			
+			Cliente obj = clienteRepository.save(cliente);
+			
+			return obj;
+			
+		}
+	
+	}
+

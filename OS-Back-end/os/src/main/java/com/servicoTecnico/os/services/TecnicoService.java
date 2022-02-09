@@ -79,8 +79,11 @@ public class TecnicoService {
 	public void deleteTecnicoPorId(Long id) {
 		tecnicoRepository.findById(id)
 		.orElseThrow(()->  new ResponseStatusException(HttpStatus.NOT_FOUND,"id " + id + " não encontrado!"));
+		try {
 		tecnicoRepository.deleteById(id);
-		
+		}catch(DataIntegrityViolationException e) {
+			throw new DataIntegrityViolationException("TÉCNICO NÃO PODE SER DELETADO! POSSUI ORDENS DE SERVIÇO EM ABERTO!");
+		}
 		
 	}
 	}

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.servicoTecnico.os.dtos.ClienteDTO;
 
 @Entity
 public class Cliente extends Pessoa {

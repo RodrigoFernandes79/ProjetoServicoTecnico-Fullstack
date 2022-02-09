@@ -32,6 +32,9 @@ public class Tecnico extends Pessoa{
 	public void setOrdemServico(List<OrdemServico> ordemServico) {
 		this.ordemServico = ordemServico;
 	}
+
+		
+	
 	
 	
 
