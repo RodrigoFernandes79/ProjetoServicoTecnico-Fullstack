@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.servicoTecnico.os.enums.Prioridade;
@@ -28,6 +29,7 @@ public class OrdemServico {
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime dataFechamento;
 	private Integer prioridade;
+	@NotBlank(message= "O CAMPO OBSERVAÇÕES É REQUERIDO!")
 	private String observacoes;
 	private Integer status;
 	
@@ -36,7 +38,7 @@ public class OrdemServico {
 	private Cliente cliente;
 	
 	@ManyToOne
-	@JoinColumn(name="tecnico_id")
+	@JoinColumn(name = "tecnico_id")
 	private Tecnico tecnico;
 	
 	public OrdemServico() {
@@ -54,7 +56,7 @@ public class OrdemServico {
 		this.id = id;
 		this.setDataAbertura(LocalDateTime.now());
 		
-		this.prioridade = (prioridade==null) ? 0 : prioridade.getCod() ;
+		this.prioridade = (prioridade == null) ? 0 : prioridade.getCod();
 		this.observacoes = observacoes;
 		this.status = (status == null) ? 0: status.getCod();
 		
@@ -121,6 +123,9 @@ public class OrdemServico {
 	public Tecnico getTecnico() {
 		return tecnico;
 	}
+
+	
+
 
 	public void setTecnico(Tecnico tecnico) {
 		this.tecnico = tecnico;

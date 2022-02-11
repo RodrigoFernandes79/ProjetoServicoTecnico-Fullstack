@@ -1,0 +1,25 @@
+package com.servicoTecnico.os.services;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.servicoTecnico.os.models.OrdemServico;
+import com.servicoTecnico.os.repositories.OrdemServicoRepository;
+
+@Service
+public class OrdemServicoService {
+	
+	@Autowired
+	private OrdemServicoRepository osRepository;
+
+	public OrdemServico criarOS(@Valid OrdemServico os) {
+		
+		OrdemServico obj = osRepository.save(os);
+		return obj;
+	}
+	
+	
+
+}

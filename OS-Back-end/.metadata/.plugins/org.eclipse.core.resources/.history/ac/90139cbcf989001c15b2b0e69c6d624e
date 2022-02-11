@@ -1,0 +1,5 @@
+package com.servicoTecnico.os.services;
+
+public class OrdemServicoService {
+
+}
