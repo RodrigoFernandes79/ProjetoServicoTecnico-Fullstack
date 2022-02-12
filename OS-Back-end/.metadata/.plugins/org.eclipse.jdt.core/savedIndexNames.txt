@@ -45,7 +45,6 @@ INDEX VERSION 1.131+C:\Users\rodri\OneDrive\Área de Trabalho\ProjetoFullStack\Pr
 2109911116.index
 3698117704.index
 1723982357.index
-2978896168.index
 988667069.index
 721802928.index
 320663504.index
@@ -54,8 +53,8 @@ INDEX VERSION 1.131+C:\Users\rodri\OneDrive\Área de Trabalho\ProjetoFullStack\Pr
 1915164816.index
 3847051738.index
 4066671512.index
-35032804.index
 618712396.index
+35032804.index
 89066882.index
 2523574358.index
 3180427668.index

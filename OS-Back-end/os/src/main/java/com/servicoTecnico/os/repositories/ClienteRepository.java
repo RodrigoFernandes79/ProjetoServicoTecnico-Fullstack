@@ -14,4 +14,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
 	@Query(value="SELECT * FROM PESSOA WHERE CPF= :cpf", nativeQuery=true)
 	Optional<Cliente> findClienteByCpf(@Param(value="cpf")String cpf);
+
+	
 }
