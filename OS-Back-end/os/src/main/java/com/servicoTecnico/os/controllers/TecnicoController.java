@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.servicoTecnico.os.dtos.TecnicoDTO;
 import com.servicoTecnico.os.models.Tecnico;
 import com.servicoTecnico.os.services.TecnicoService;
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/tecnicos")
 public class TecnicoController {
@@ -32,10 +32,10 @@ public class TecnicoController {
 	
 	
 	@PostMapping
-	ResponseEntity<TecnicoDTO> criarTecnico(@Valid @RequestBody Tecnico tecnico){
+	ResponseEntity<TecnicoDTO> criarTecnico(@Valid @RequestBody TecnicoDTO tecnicoDTO){
 		
 		
-		Tecnico obj = tecnicoService.criarTecnico(tecnico);
+		Tecnico obj = tecnicoService.criarTecnico(tecnicoDTO);
 		
 		TecnicoDTO newObj = new TecnicoDTO(obj);
 		
@@ -53,9 +53,10 @@ public class TecnicoController {
 	}
 	
 	@GetMapping
-	ResponseEntity<List<Tecnico>> listarTecnicos(){
+	ResponseEntity<List<TecnicoDTO>> listarTecnicos(){
 
-		List<Tecnico> obj = tecnicoService.listarTecnicos();
+		
+		List<TecnicoDTO>  obj = tecnicoService.listarTecnicos();
 		
 		return ResponseEntity.ok().body(obj);
 

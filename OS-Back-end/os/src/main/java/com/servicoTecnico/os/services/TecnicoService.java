@@ -1,5 +1,6 @@
 package com.servicoTecnico.os.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,19 +22,20 @@ public class TecnicoService {
 	@Autowired
 	private TecnicoRepository tecnicoRepository;
 
-	public Tecnico criarTecnico(Tecnico tecnico) {
-		TecnicoDTO DTO = new TecnicoDTO(tecnico);
-		Optional<Tecnico> cpf = tecnicoRepository.findTecnicoByCpf(DTO.getCpf());
+	public Tecnico criarTecnico(  @Valid TecnicoDTO tecnicoDTO) {
+		
+		Optional<Tecnico> cpf = tecnicoRepository.findTecnicoByCpf(tecnicoDTO.getCpf());
 		if(cpf.isPresent()){
 			throw new DataIntegrityViolationException("CPF Já EXISTE!");	
 			
 	}else{
 		
+		Tecnico obj = new Tecnico(null, tecnicoDTO.getNome(), tecnicoDTO.getCpf(), tecnicoDTO.getTelefone());
+				
+		Tecnico newObj = tecnicoRepository.save(obj);	
 		
-		Tecnico obj = tecnicoRepository.save(tecnico);	
 		
-		
-		return obj;
+		return newObj;
 	}
 		
 	}
@@ -47,9 +49,10 @@ public class TecnicoService {
 	   
 	}
 
-	public List<Tecnico> listarTecnicos() {
+	public List<TecnicoDTO> listarTecnicos() {
 		List<Tecnico> obj = tecnicoRepository.findAll();
-		return obj;
+		List<TecnicoDTO> newObj = new ArrayList(obj);
+		return newObj;
 	}
 
 	public Tecnico alterarTecnicoPorId(@Valid TecnicoDTO tecnicoDTO, Long id) {

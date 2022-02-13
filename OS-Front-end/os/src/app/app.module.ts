@@ -37,7 +37,7 @@ import { TecnicoReadComponent } from './views/components/tecnico/tecnico-read/te
     
     HomeComponent,
     
-    TecnicoComponent,
+   
     
     TecnicoReadComponent
   ],
