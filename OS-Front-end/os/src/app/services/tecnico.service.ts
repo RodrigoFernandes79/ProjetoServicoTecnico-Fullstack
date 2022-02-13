@@ -15,9 +15,11 @@ export class TecnicoService {
   getTecnico():Observable<Tecnico[]>{
     return this.http.get<Tecnico[]>(this.tecnicoUrl);
     
-    
-    
-    
+  }
+
+  postTecnico(tecnico:Tecnico):Observable<Tecnico>{
+
+    return this.http.post<Tecnico>(this.tecnicoUrl,tecnico);
   }
 
   
