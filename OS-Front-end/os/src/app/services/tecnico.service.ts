@@ -22,5 +22,12 @@ export class TecnicoService {
     return this.http.post<Tecnico>(this.tecnicoUrl,tecnico);
   }
 
-  
+  getTecnicoById(id:number):Observable<Tecnico>{
+
+return this.http.get<Tecnico>(`${this.tecnicoUrl}/${id}`);
+  }
+
+  updateTecnicoByID(tecnico:Tecnico , id:number):Observable<Tecnico>{
+    return this.http.put<Tecnico>(`${this.tecnicoUrl}/${id}`,tecnico);
+  }
 }

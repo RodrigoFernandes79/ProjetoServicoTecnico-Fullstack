@@ -57,15 +57,12 @@ public class TecnicoService {
 
 	public Tecnico alterarTecnicoPorId(@Valid TecnicoDTO tecnicoDTO, Long id) {
 		
-		
-		
 		Optional<Tecnico> cpf = tecnicoRepository.findTecnicoByCpf(tecnicoDTO.getCpf());
 		
-		if(cpf.isPresent() && tecnicoDTO.getId() != id){
+		if(cpf.isPresent()&& cpf.get().getId() != id){
 			throw new DataIntegrityViolationException("CPF Já EXISTE!");	
 			
-	}else{
-		
+		}
 		return tecnicoRepository.findById(id)
 				.map(obj ->{
 					obj.setNome(tecnicoDTO.getNome());
@@ -73,10 +70,12 @@ public class TecnicoService {
 					obj.setTelefone(tecnicoDTO.getTelefone());
 					Tecnico tc = tecnicoRepository.save(obj);
 					
+					
 					return tc;
+					
 				}).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "ID: "+id+ " não encontrado!"));
-		
-	}
+				
+				
 	}
 
 	public void deleteTecnicoPorId(Long id) {

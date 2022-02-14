@@ -26,6 +26,7 @@ export class TecnicoCreateComponent implements OnInit {
 
   criarTecnico():void{
   this.service.postTecnico(this.tecnico).subscribe(()=>{
+    
     this.retornaLista();
     const Toast = Swal.mixin({
       toast: true,
@@ -63,15 +64,6 @@ export class TecnicoCreateComponent implements OnInit {
       footer: err.error.cpf
   
  })
-  }else{
-    console.log(err)
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Técnico não pode ser Cadastrado!',
-      footer:'Campo(s) Obrigatório(s)!'
-  
-   })
   }
 } 
   )

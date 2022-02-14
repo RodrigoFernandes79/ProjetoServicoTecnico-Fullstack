@@ -1,5 +1,6 @@
 package com.servicoTecnico.os.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -44,12 +45,12 @@ public class TecnicoController {
 	}
 	
 	@GetMapping("/{id}")
-	ResponseEntity<Tecnico> encontraTecnicoPorId(@PathVariable Long id){
+	ResponseEntity<TecnicoDTO> encontraTecnicoPorId(@PathVariable Long id){
 		Tecnico obj = tecnicoService.encontraTecnicoPorId(id);
 		
+		TecnicoDTO newObj = new TecnicoDTO(obj);
 		
-		
-		return ResponseEntity.ok().body(obj);
+		return ResponseEntity.ok().body(newObj);
 	}
 	
 	@GetMapping
@@ -63,14 +64,14 @@ public class TecnicoController {
 	}
 	
 	@PutMapping("/{id}")
-	ResponseEntity<Tecnico> alteraTecnicoPorId(@Valid @RequestBody TecnicoDTO tecnicoDTO , @PathVariable Long id){
+	ResponseEntity<TecnicoDTO> alteraTecnicoPorId(@Valid @RequestBody TecnicoDTO tecnicoDTO , @PathVariable Long id){
 		
 		
 		Tecnico obj = tecnicoService.alterarTecnicoPorId(tecnicoDTO,id);
 		
+		TecnicoDTO newObj = new TecnicoDTO(obj);
 		
-		
-		return ResponseEntity.ok().body(obj);
+		return ResponseEntity.ok().body(newObj);
 		
 		
 	}

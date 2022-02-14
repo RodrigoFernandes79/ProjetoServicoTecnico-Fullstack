@@ -62,12 +62,13 @@ public class ClienteService {
 	public Cliente alterarClientePorId(@Valid ClienteDTO clienteDTO, Long id) {
 		Optional<Cliente> cpf = clienteRepository.findClienteByCpf(clienteDTO.getCpf());
 
-		if(cpf.isPresent()&& clienteDTO.getId() != id ) {
+		if(cpf.isPresent()&& cpf.get().getId() != id) {
 			throw new DataIntegrityViolationException("CPF JÁ EXISTE NA BASE DE DADOS!");
 	}
 		
 	return  clienteRepository.findById(id)
 				.map(obj->{
+					obj.getId();
 					obj.setNome(clienteDTO.getNome());
 					obj.setCpf(clienteDTO.getCpf());
 					obj.setTelefone(clienteDTO.getTelefone());
