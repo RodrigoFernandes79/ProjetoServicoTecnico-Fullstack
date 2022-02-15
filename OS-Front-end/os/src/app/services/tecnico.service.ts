@@ -30,4 +30,8 @@ return this.http.get<Tecnico>(`${this.tecnicoUrl}/${id}`);
   updateTecnicoByID(tecnico:Tecnico , id:number):Observable<Tecnico>{
     return this.http.put<Tecnico>(`${this.tecnicoUrl}/${id}`,tecnico);
   }
+
+  deleteTecnicoById(id:number):Observable<Tecnico>{
+    return this.http.delete<Tecnico>(`${this.tecnicoUrl}/${id}`);
+  }
 }
