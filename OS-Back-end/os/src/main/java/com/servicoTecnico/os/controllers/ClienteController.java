@@ -1,5 +1,6 @@
 package com.servicoTecnico.os.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -44,28 +45,30 @@ public class ClienteController {
 	}
 	
 	@GetMapping("/{id}")
-	ResponseEntity<Cliente> encontraClientePorId(@PathVariable Long id){
+	ResponseEntity<ClienteDTO> encontraClientePorId(@PathVariable Long id){
 		
 		Cliente obj = clienteService.encontraClientePorId(id);
 		
+		ClienteDTO newObj = new ClienteDTO(obj);
 		
-		
-		return ResponseEntity.ok().body(obj);
+		return ResponseEntity.ok().body(newObj);
 	}
 	
 	@GetMapping
-	ResponseEntity<List<Cliente>> listarClientes(){
+	ResponseEntity<List<ClienteDTO>> listarClientes(){
 		List<Cliente> obj = clienteService.listarClientes();
+		List<ClienteDTO> newObj = new ArrayList(obj);
 		
-		return ResponseEntity.ok().body(obj);
+		return ResponseEntity.ok().body(newObj);
 	}
 	
 	@PutMapping("/{id}")
-	ResponseEntity<Cliente> alterarClientePorId(@Valid @RequestBody ClienteDTO clienteDTO, @PathVariable Long id){
+	ResponseEntity<ClienteDTO> alterarClientePorId(@Valid @RequestBody ClienteDTO clienteDTO, @PathVariable Long id){
 		
 		Cliente obj = clienteService.alterarClientePorId(clienteDTO,id);
+		ClienteDTO newObj = new ClienteDTO(obj);
 		
-		return ResponseEntity.ok().body(obj);
+		return ResponseEntity.ok().body(newObj);
 		
 	}
 	@ResponseStatus(HttpStatus.NO_CONTENT)

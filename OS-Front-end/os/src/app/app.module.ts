@@ -26,6 +26,9 @@ import { HomeComponent } from './views/components/home/home.component';
 import { TecnicoReadComponent } from './views/components/tecnico/tecnico-read/tecnico-read.component';
 import { TecnicoCreateComponent } from './views/components/tecnico/tecnico-create/tecnico-create.component';
 import { TecnicoUpdateComponent } from './views/components/tecnico/tecnico-update/tecnico-update.component';
+import { ClienteReadComponent } from './views/components/cliente/cliente-read/cliente-read.component';
+import { ClienteCreateComponent } from './views/components/cliente/cliente-create/cliente-create.component';
+import { ClienteUpdateComponent } from './views/components/cliente/cliente-update/cliente-update.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,19 @@ import { TecnicoUpdateComponent } from './views/components/tecnico/tecnico-updat
     
    
     
-    TecnicoUpdateComponent
+    TecnicoUpdateComponent,
+    
+   
+    
+    ClienteReadComponent,
+    
+   
+    
+    ClienteCreateComponent,
+    
+   
+    
+    ClienteUpdateComponent
   ],
   imports: [
     BrowserModule,
