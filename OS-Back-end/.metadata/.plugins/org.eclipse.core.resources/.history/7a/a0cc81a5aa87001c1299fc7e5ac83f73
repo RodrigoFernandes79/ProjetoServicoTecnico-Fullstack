@@ -1,5 +1,0 @@
-package com.servicoTecnico.os.exceptions;
-
-public class ApplicationControllerAdvice {
-
-}
