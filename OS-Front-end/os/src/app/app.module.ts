@@ -29,6 +29,7 @@ import { TecnicoUpdateComponent } from './views/components/tecnico/tecnico-updat
 import { ClienteReadComponent } from './views/components/cliente/cliente-read/cliente-read.component';
 import { ClienteCreateComponent } from './views/components/cliente/cliente-create/cliente-create.component';
 import { ClienteUpdateComponent } from './views/components/cliente/cliente-update/cliente-update.component';
+import { OsReadComponent } from './views/components/os/os-read/os-read.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,11 @@ import { ClienteUpdateComponent } from './views/components/cliente/cliente-updat
     
    
     
-    ClienteUpdateComponent
+    ClienteUpdateComponent,
+    
+   
+    
+    OsReadComponent
   ],
   imports: [
     BrowserModule,

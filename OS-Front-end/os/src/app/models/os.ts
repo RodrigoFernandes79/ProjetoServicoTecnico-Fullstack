@@ -1,3 +1,5 @@
+import { Cliente } from "./cliente";
+
 export class OS{
 
     id?:number;
@@ -5,7 +7,7 @@ export class OS{
     dataFechamento?:any;
     observacoes:String;
     status:any;
-    cliente:any;
+    cliente:any ;
     tecnico:any;
 
 }
