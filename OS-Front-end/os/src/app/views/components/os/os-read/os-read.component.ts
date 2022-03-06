@@ -42,8 +42,13 @@ id:number;
   }
 
   listarOrdemServico():void{
-      this.service.getOS().subscribe(resposta=>{
-      this.OrdemServico =resposta;
+      this.service.getOS().subscribe(resposta =>{
+        resposta.forEach(x =>{
+          if(x.status != 'ENCERRADO'){
+            this.OrdemServico.push(x);
+          }
+        })
+      
       this.dataSource = new MatTableDataSource<OS>(this.OrdemServico);
       this.dataSource.paginator = this.paginator;
     })

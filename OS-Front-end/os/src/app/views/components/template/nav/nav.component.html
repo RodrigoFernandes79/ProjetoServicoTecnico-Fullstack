@@ -17,9 +17,12 @@
                     <mat-icon style="margin-right: 5px;">person_pin</mat-icon>Clientes</mat-list-item>
             </a>
 
-            <a routerLink="os" class="nav-link active" aria-current="page">
-                <mat-list-item role="listitem ">
-                    <mat-icon style="margin-right: 5px;">build</mat-icon>Ordem de Serviço</mat-list-item>
+            <a mat-list-item [matMenuTriggerFor]="menu">
+                <mat-menu #menu="matMenu">
+                    <a routerLink="os" mat-menu-item>Abertas ou em Andamento</a>
+                    <a routerLink="os/closed" mat-menu-item>Encerradas</a>
+                </mat-menu>
+                <mat-icon style="margin-right: 5px;">build</mat-icon>Ordem de Serviço
             </a>
 
         </mat-list>
