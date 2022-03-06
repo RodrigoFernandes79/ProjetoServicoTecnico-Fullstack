@@ -4,6 +4,7 @@ import { ClienteCreateComponent } from './views/components/cliente/cliente-creat
 import { ClienteReadComponent } from './views/components/cliente/cliente-read/cliente-read.component';
 import { ClienteUpdateComponent } from './views/components/cliente/cliente-update/cliente-update.component';
 import { HomeComponent } from './views/components/home/home.component';
+import { OsCreateComponent } from './views/components/os/os-create/os-create.component';
 import { OsReadComponent } from './views/components/os/os-read/os-read.component';
 import { TecnicoCreateComponent } from './views/components/tecnico/tecnico-create/tecnico-create.component';
 import { TecnicoReadComponent } from './views/components/tecnico/tecnico-read/tecnico-read.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'clientes/create', component:ClienteCreateComponent},
   {path:'clientes/update/:id',component:ClienteUpdateComponent},
   {path:'os', component:OsReadComponent},
+  {path:'os/create',component:OsCreateComponent},
   
   
   
