@@ -9,5 +9,6 @@ export class OS{
     status:any;
     cliente:any ;
     tecnico:any;
+    prioridade:any;
 
 }
