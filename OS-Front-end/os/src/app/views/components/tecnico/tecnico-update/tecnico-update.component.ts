@@ -14,7 +14,12 @@ export class TecnicoUpdateComponent implements OnInit {
   constructor(private router:Router, private service:TecnicoService , private route:ActivatedRoute) { }
  
   id:number;
-  tecnico:Tecnico =new Tecnico();
+  tecnico:Tecnico;
+  
+    
+
+
+ 
 
   ngOnInit(): void {
     this.tecnico;

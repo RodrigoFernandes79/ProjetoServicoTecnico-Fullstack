@@ -26,8 +26,8 @@ export class OsService {
 return this.http.get<OS>(`${this.OSUrl}/${id}`);
   }
 
-  updateOSByID(os:OS , id:number):Observable<OS>{
-    return this.http.put<OS>(`${this.OSUrl}/${id}`,os);
+  updateOS(os:OS ):Observable<OS>{
+    return this.http.put<OS>(`${this.OSUrl}`,os);
   }
 
   deleteOSById(id:number):Observable<OS>{
