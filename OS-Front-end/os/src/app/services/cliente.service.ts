@@ -1,3 +1,4 @@
+import { BasePortalOutlet } from '@angular/cdk/portal';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -8,7 +9,7 @@ import { Cliente } from '../models/cliente';
 })
 export class ClienteService {
   
-  private clienteUrl:string='http://localhost:8080/clientes';
+  private clienteUrl:string= 'https://ordem-servico-spring-boot.herokuapp.com/clientes';
 
 constructor(private http:HttpClient) { }
 

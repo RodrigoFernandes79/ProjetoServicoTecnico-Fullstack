@@ -1,6 +1,5 @@
 package com.servicoTecnico.os.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -22,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.servicoTecnico.os.dtos.TecnicoDTO;
 import com.servicoTecnico.os.models.Tecnico;
 import com.servicoTecnico.os.services.TecnicoService;
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/tecnicos")
 public class TecnicoController {

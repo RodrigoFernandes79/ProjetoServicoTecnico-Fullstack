@@ -7,7 +7,7 @@ import { OS } from '../models/os';
   providedIn: 'root'
 })
 export class OsService {
-  private OSUrl:string='http://localhost:8080/ordemservico';
+  private OSUrl:string='https://ordem-servico-spring-boot.herokuapp.com/ordemservico';
 
   constructor(private http:HttpClient) { }
 

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Extract local variable &apos;cpf2&apos; from expression &apos;tecnicoDTO.getCpf()&apos;&#x0D;&#x0A;- Original project: &apos;os&apos;&#x0D;&#x0A;- Variable name: &apos;cpf2&apos;&#x0D;&#x0A;- Destination method: &apos;com.servicoTecnico.os.services.TecnicoService.alterarTecnicoPorId(...)&apos;&#x0D;&#x0A;- Variable expression: &apos;tecnicoDTO.getCpf()&apos;" description="Extract local variable &apos;cpf2&apos;" final="false" id="org.eclipse.jdt.ui.extract.temp" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.servicoTecnico.os.services{TecnicoService.java" name="cpf2" replace="false" selection="1804 19" stamp="1644805346494" varType="false" version="1.0"/>
-</session>

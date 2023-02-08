@@ -8,7 +8,7 @@ import { Tecnico } from '../models/tecnico';
 })
 export class TecnicoService {
 
-  private tecnicoUrl:string='http://localhost:8080/tecnicos';
+  private tecnicoUrl:string='https://ordem-servico-spring-boot.herokuapp.com/tecnicos';
 
   constructor(private http:HttpClient) { }
 
